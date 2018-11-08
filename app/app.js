@@ -7,6 +7,39 @@ var phonecatApp = angular.module("myApp", []);
 phonecatApp.controller("Controller", function Controller($scope) {
   $scope.name = "";
   $scope.description = "";
+  $scope.days = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ];
   $scope.buff = "";
   $scope.descriptionNew = "";
 
@@ -80,7 +113,9 @@ phonecatApp.controller("Controller", function Controller($scope) {
 
   $scope.rendernoftaskDescription = function(i) {
     if ($scope.tasksArray[0] && $scope.tasksArray[0].id) {
-      let buff = $scope.tasksArray.filter(item => i === item.id)[0];
+      //let buff=$scope.tasksArray.filter(item=> ( i===item.id) )[0]
+      let buff = $scope.tasksArray.find(item => item.id === i);
+
       if (buff && buff.id && i === buff.id) {
         return buff.task.description;
       }
